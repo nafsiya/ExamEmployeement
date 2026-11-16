@@ -1,0 +1,92 @@
+#API call for employee creation
+
+###
+POST http://127.0.0.1:8000/employee
+Content-Type: application/json
+
+{
+    "name":"sanu",
+    "email":"sanu@gmail.com",
+    "department":"computer science",
+    "designation":"teacher",
+    "password":"sanu"
+}
+
+#API call for get emloyee details
+###
+GET http://127.0.0.1:8000/employee
+
+#API call get single employe details
+###
+GET http://127.0.0.1:8000/employees/1
+
+###
+PUT http://127.0.0.1:8000/employees/1
+Content-Type: application/json
+
+
+{
+    "name":"anu",
+    "email":"anu12@gmail.com",
+    "department":"computer science",
+    "designation":"teacher",
+    "password":"anu"
+}
+
+###
+DELETE http://127.0.0.1:8000/employees/1
+
+
+#api call for token authentication
+###
+POST  http://127.0.0.1:8000/token
+Content-Type: application/json
+
+{
+    "username":"sanu@gmail.com",
+    "password":"sanu"
+}
+
+###
+POST http://127.0.0.1:8000/task
+Content-Type: application/json
+Authorization: Token token
+
+{
+    "title":"project1",
+    "priority":"high",
+    "status":"in progress",
+    "due_date":"2026-10-25"
+}
+
+#Api call for list task
+###
+GET http://127.0.0.1:8000/task
+Authorization: Token token
+
+
+#api call for retrieve a single data
+###
+GET http://127.0.0.1:8000/task/details/1
+Authorization: Token token
+###
+PUT http://127.0.0.1:8000/task/details/1
+Content-Type: application/json
+Authorization: Token token
+
+{
+    "title":"project1",
+    "priority":"medium",
+    "status":"in progress",
+    "due_date":"2026-10-25"
+}
+
+###
+DELETE http://127.0.0.1:8000/task/details/1
+Authorization: Token token
+
+
+#api call for filtering data based on status
+GET http://127.0.0.1:8000/task?status=in progresss
+Authorization: Token token
+
